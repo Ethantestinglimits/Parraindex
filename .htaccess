@@ -1,0 +1,2 @@
+# CUSTOM ERROR PAGES
+ErrorDocument 404 templates/error/404.html.twig

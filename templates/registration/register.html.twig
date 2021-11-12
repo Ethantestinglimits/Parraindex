@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+    {% for flashError in app.flashes('verify_email_error') %}
+        <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+    {% endfor %}
+    <div class="login-container register">
+        <a href="/" class="logo logo-text">
+            Parraindex
+        </a>
+        <h1 class="h3 mb-3 font-weight-normal">S'enregistrer</h1>
+        <div class="form">
+            {{ form_start(registrationForm) }}
+            <div class="input-container">
+                <label>Pseudo</label>
+                {{ form_row(registrationForm.username, {
+                    label: ' ',
+                }) }}
+            </div>
+            <div class="input-container">
+                <label>Mail</label>
+                {{ form_row(registrationForm.email, {
+                    label: ' '
+                }) }}
+            </div>
+            <div class="input-container">
+                <label>NOM</label>
+                {{ form_row(registrationForm.firstName, {
+                    label: ' '
+                }) }}
+            </div>
+            <div class="input-container">
+                <label>Prénom</label>
+                {{ form_row(registrationForm.lastName, {
+                    label: ' '
+                }) }}
+            </div>
+            <div class="input-container">
+                <label>Date de Naissance</label>
+                {{ form_row(registrationForm.birthDate, {
+                    label: ' '
+                }) }}
+            </div>
+            <div class="input-container">
+                <label>Mot de passe</label>
+                {{ form_row(registrationForm.plainPassword, {
+                    label: ' '
+                }) }}
+            </div>
+            <div class="flex checbox-no-wrap">
+                {{ form_row(registrationForm.agreeTerms, {
+                    label: "Accepter les conditions d'utilisations"
+                }) }}
+            </div>
+
+                <button type="submit" class="btn">S'inscrire</button>
+            {{ form_end(registrationForm) }}
+        </div>
+    </div>
+    <script>
+        let body = document.getElementById("bg")
+        window.onload = function() {
+            body.classList.toggle("bg-pp");
+        }
+    </script>
+{% endblock %}

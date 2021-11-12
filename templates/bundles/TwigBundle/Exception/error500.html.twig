@@ -1,0 +1,47 @@
+{% extends "base.html.twig" %}
+
+{% block title %}500 Server Error{% endblock %}
+
+{% block body %}
+
+    <div id="notfound">
+        <div class="notfound-bg">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="notfound">
+            <div class="notfound-404">
+                <h1>500</h1>
+            </div>
+            <h2>Oops!</h2>
+            <p>Something is broken. Please let us know what you were doing when this error occurred. We will fix it as soon as possible. Sorry for any inconvenience caused.</p>
+            <a onclick="redirect()">FUIR</a>
+            <div class="notfound-redirect"></div>
+        </div>
+    </div>
+
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        function redirect() {
+            Swal.fire({
+                title: 'Fuir vers...',
+                icon: 'question',
+                iconHtml: '؟',
+                confirmButtonText: 'Accueil',
+                denyButtonText: 'Mini-jeux',
+                showCancelButton: false,
+                showCloseButton: true,
+                showDenyButton: true
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location = 'index.php';
+                } else if (result.isDenied) {
+                    window.location = 'mini-game.html.twig';
+                }
+
+            })}
+    </script>
+
+{% endblock %}
